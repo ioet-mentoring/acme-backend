@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  acme-bk-prod:
+    container_name: acme-bk-prod
+    restart: always
+    image: acme-bk-dev
+    build:
+      target: production
+      context: .
+      args:
+        - API_URL=http://201.183.60.49:1541
+    ports:
+      - "3000:3000"

@@ -36,7 +36,7 @@ build:
 
 shell:
 	@if [ "$(with)" = "docker" ]; then\
-		docker run -it --rm -p 3000:3000 -v "$(shell pwd):/app" -w"/app" node:14.15.1 bash;\
+		docker run -it --rm -p 3000:3000 --user 1000:1000 -v "$(shell pwd):/usr/src/app" acme-backend-dev bash;\
 	else \
-		nvm use v14.15.1;\
+		/bin/bash nvm use v14.15.1;\
 	fi

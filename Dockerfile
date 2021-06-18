@@ -3,11 +3,9 @@ WORKDIR /usr/src/app
 COPY . .
 
 FROM base as development
-RUN npm install --only=development
-CMD ["npm", "run", "start"]
+RUN npm install
 
 FROM base as production
 ENV NODE_ENV=production
-RUN npm install --only=production
-RUN npm run build
+RUN npm install --only=production && npm run build
 CMD ["npm", "run", "start:prod"]

@@ -40,3 +40,7 @@ shell:
 	else \
 		/bin/bash nvm use v14.15.1;\
 	fi
+
+run: build
+	docker run --rm -p 3000:3000 acme-backend-prod
+	
